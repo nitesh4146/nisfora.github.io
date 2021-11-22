@@ -55,7 +55,7 @@ Roles & Achievements:
     </tr>
     <tr>
         <td><b>Roles & Achievements</b></td>
-        <td>:&nbsp; 
+        <td>
             <ul>
                 <li>
                 Graduate Research Assistant.
