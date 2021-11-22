@@ -27,7 +27,7 @@ motivation and interests, <br><b>let's connect!</b>
 
 
 ## Education
-### University of Central Florida  
+### <a style="color:3b9cba" href="">University of Central Florida </a>
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
 
 <!-- Research &nbsp;: Real-time Autonomous Systems
@@ -72,7 +72,7 @@ Roles & Achievements:
 </table>
 
             
-<span style="color:blue">some *blue* text</span>.
+<span style="color:3b9cba">some *blue* text</span>.
 
 ### University of Central Florida
 
@@ -152,35 +152,3 @@ Make any link standout more when applying the `.btn` class.
 **Watch out!** You can also add notices by appending `{: .notice}` to a paragraph.
 {: .notice}
 
-
-
-<div class="mb-5">
-    <button type="button" class="grey_button btn-primary btn-lg" data-toggle="modal"
-    data-target="#ucf">Courses</button>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="ucf_phd" role="dialog">
-    <div class="modal-dialog modal-lg">
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-        <div class="text-left">
-            <h4 class="modal-title">Courses at University of Central Florida</h4>
-        </div>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-        <div align="justify">
-            <ul class="fa-ul mb-0">
-            <li><i class="fa-li fa fa-book"></i>CAP 5610 - Machine Learning</li>
-            <li><i class="fa-li fa fa-book"></i>EEL 5862 Real-Time Systems</li>
-            </ul>
-        </div>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </div>
-</div>
