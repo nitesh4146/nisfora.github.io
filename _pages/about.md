@@ -30,23 +30,23 @@ motivation and interests, <br><b>let's connect!</b>
 ### University of Central Florida  
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
 
-Research &nbsp;: Real-time Autonomous Systems
+<!-- Research &nbsp;: Real-time Autonomous Systems
 Advisor &nbsp;: Dr. Zhishan Guo
 Co-advisor &nbsp;: Dr. Yaser P. Fallah
 Roles & Achievements:
 - Graduate Research Assistant
 - Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design
 - Recipient of Graduate Dean's Fellowship
-- Recipient of Hoglund Fellowship
+- Recipient of Hoglund Fellowship -->
 
 <table>
     <tr>
         <td><b>Research</b></td>
-        <td> :&nbsp; Real-time Autonomous Systems</td>
+        <td>: Real-time Autonomous Systems</td>
     </tr>
     <tr>
         <td><b>Advisor</b></td>
-        <td>:&nbsp; <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a></td>
+        <td>: <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a></td>
     </tr>
     <tr>
         <td><b>Co-advisor</b></td>
