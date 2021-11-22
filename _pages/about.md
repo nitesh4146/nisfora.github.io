@@ -61,10 +61,6 @@ motivation and interests, <br><b>let's connect!</b>
     </tr>
 </table>
 
-
-<div class="wrapper">Courses
-    <div class="tooltip">I am a tooltip!</div>
-</div>
             
 ### University of Central Florida
 
