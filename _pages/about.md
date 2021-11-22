@@ -42,11 +42,11 @@ Roles & Achievements:
 <table>
     <tr>
         <td><b>Research</b></td>
-        <td>: Real-time Autonomous Systems</td>
+        <td> :&nbsp; Real-time Autonomous Systems</td>
     </tr>
     <tr>
         <td><b>Advisor</b></td>
-        <td>: <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a></td>
+        <td>:&nbsp; <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a></td>
     </tr>
     <tr>
         <td><b>Co-advisor</b></td>
@@ -54,7 +54,7 @@ Roles & Achievements:
             Fallah</a> </td>
     </tr>
     <tr>
-        <td><b>Roles & Achievements</b><br>
+        <td style="border-bottom:0px;"><b>Roles & Achievements</b><br>
             <ul>
                 <li>
                 Graduate Research Assistant.
