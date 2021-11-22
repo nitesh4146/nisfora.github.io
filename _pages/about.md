@@ -27,7 +27,7 @@ motivation and interests, <br><b>let's connect!</b>
 
 
 ## Education
-### <a style="color:3b9cba" href="">University of Central Florida </a>
+### <a style="color:#3b9cba" href="">University of Central Florida </a>
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
 
 <!-- Research &nbsp;: Real-time Autonomous Systems
