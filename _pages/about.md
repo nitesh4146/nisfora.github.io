@@ -55,9 +55,6 @@ Roles & Achievements:
     </tr>
     <tr>
         <td style="border-bottom:0px;"><b>Roles & Achievements</b></td>
-        <td></td>
-    </tr>
-    <tr>
         <td>
             <ul>
                 <li>
