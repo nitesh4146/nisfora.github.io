@@ -45,29 +45,25 @@ Roles & Achievements:
         <td> :&nbsp; Real-time Autonomous Systems</td>
     </tr>
     <tr>
-        <td><b>Advisor</b></td>
-        <td>:&nbsp; <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a></td>
+        <td><b>Advisors</b></td>
+        <td>:&nbsp; <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a> and <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
+            Fallah</a></td>
     </tr>
     <tr>
-        <td><b>Co-advisor</b></td>
-        <td>:&nbsp; <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
-            Fallah</a> </td>
-    </tr>
-    <tr>
-        <td><b>Roles & Achievements</b></td>
+        <td><b>Highlights</b></td>
         <td>
             <ul>
                 <li>
-                Graduate Research Assistant.
+                Graduate Research Assistant
                 </li>
                 <li>
-                Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design.
+                Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design
                 </li>
                 <li>
-                Recipient of Graduate Dean's Fellowship.
+                Recipient of Graduate Dean's Fellowship
                 </li>
                 <li>
-                Recipient of Hoglund Fellowship.
+                Recipient of Hoglund Fellowship
                 </li>
             </ul>
         </td>
@@ -155,3 +151,36 @@ Make any link standout more when applying the `.btn` class.
 
 **Watch out!** You can also add notices by appending `{: .notice}` to a paragraph.
 {: .notice}
+
+
+
+<div class="mb-5">
+    <button type="button" class="grey_button btn-primary btn-lg" data-toggle="modal"
+    data-target="#ucf">Courses</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ucf_phd" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+        <div class="text-left">
+            <h4 class="modal-title">Courses at University of Central Florida</h4>
+        </div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        <div align="justify">
+            <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-book"></i>CAP 5610 - Machine Learning</li>
+            <li><i class="fa-li fa fa-book"></i>EEL 5862 Real-Time Systems</li>
+            </ul>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+    </div>
+</div>
