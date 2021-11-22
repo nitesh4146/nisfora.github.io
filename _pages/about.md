@@ -26,31 +26,22 @@ similar
 motivation and interests, <br><b>let's connect!</b>
 
 
-## Education
-### <a style="color:#1d6b75" href="">University of Central Florida </a>
+## <p style="color:#037365"> Education </p>
+### <a href="https://www.ucf.edu">University of Central Florida </a>
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
-
-<!-- Research &nbsp;: Real-time Autonomous Systems
-Advisor &nbsp;: Dr. Zhishan Guo
-Co-advisor &nbsp;: Dr. Yaser P. Fallah
-Roles & Achievements:
-- Graduate Research Assistant
-- Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design
-- Recipient of Graduate Dean's Fellowship
-- Recipient of Hoglund Fellowship -->
 
 <table>
     <tr>
         <td><b>Research</b></td>
-        <td> :&nbsp; Real-time Autonomous Systems</td>
+        <td>Real-time Autonomous Systems</td>
     </tr>
     <tr>
         <td><b>Advisors</b></td>
-        <td>:&nbsp; <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a> and <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
+        <td><a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a> and <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
             Fallah</a></td>
     </tr>
     <tr>
-        <td><b>Highlights</b></td>
+        <td><b>Highlights<b></td>
         <td>
             <ul>
                 <li>
@@ -71,9 +62,10 @@ Roles & Achievements:
     
 </table>
 
+<div class="wrapper">I have a tooltip.
+    <div class="tooltip">I am a tooltip!</div>
+</div>
             
-<span style="color:3b9cba">some *blue* text</span>.
-
 ### University of Central Florida
 
 ### University of Mumbai
