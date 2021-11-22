@@ -54,7 +54,7 @@ Roles & Achievements:
             Fallah</a> </td>
     </tr>
     <tr>
-        <td style="border-bottom:0px;"><b>Roles & Achievements</b></td>
+        <td><b>Roles & Achievements</b></td>
         <td>
             <ul>
                 <li>
