@@ -54,7 +54,11 @@ Roles & Achievements:
             Fallah</a> </td>
     </tr>
     <tr>
-        <td style="border-bottom:0px;"><b>Roles & Achievements</b><br>
+        <td style="border-bottom:0px;"><b>Roles & Achievements</b></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
             <ul>
                 <li>
                 Graduate Research Assistant.
@@ -70,10 +74,11 @@ Roles & Achievements:
                 </li>
             </ul>
         </td>
-        <td></td>
     </tr>
+    
 </table>
 
+            
 <span style="color:blue">some *blue* text</span>.
 
 ### University of Central Florida
