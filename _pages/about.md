@@ -27,7 +27,7 @@ motivation and interests, <br><b>let's connect!</b>
 
 
 ## <p style="color:#037365"> Education </p>
-### <a href="https://www.ucf.edu">University of Central Florida </a>
+### <a href="">University of Central Florida </a>
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
 
 <table>
@@ -59,6 +59,7 @@ motivation and interests, <br><b>let's connect!</b>
             </ul>
         </td>
     </tr>
+    
 </table>
 
             
