@@ -25,16 +25,9 @@ highly robust algorithms & accurate deep learning models.
 similar
 motivation and interests, <br><b>let's connect!</b>
 
-```yaml
----
-toc: true
-toc_label: "Nitish's Profile"
-toc_icon: "graduation-cap"  # corresponding Font Awesome icon name (without fa prefix)
----
-```
 
 ## Education
-**University of Central Florida**  
+### University of Central Florida  
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
 
 <table>
@@ -68,14 +61,15 @@ toc_icon: "graduation-cap"  # corresponding Font Awesome icon name (without fa p
                 </li>
             </ul>
         </td>
-        <!-- <td> :&nbsp;</td> -->
+        <td></td>
     </tr>
 </table>
 
+<span style="color:blue">some *blue* text</span>.
 
-**University of Central Florida**
+### University of Central Florida
 
-**University of Mumbai**
+### University of Mumbai
 
 
 ## Experience
@@ -89,13 +83,13 @@ Lorem ipsum dolor sit amet, test link adipiscing elit. **This is strong**. Nulla
 
 HTML and CSS are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.
 
-### Projects
+## Projects
 
 > Lorem ipsum dolor sit amet, test link adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.
 
 ## Skills
 
-### Publications
+## Publications
 
 1. Item one
    1. sub item one
@@ -103,7 +97,7 @@ HTML and CSS are our tools. Mauris a ante. Suspendisse quam sem, consequat at, c
    3. sub item three
 2. Item two
 
-### Contact
+## Contact
 
 * Item one
 * Item two
