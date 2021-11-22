@@ -68,24 +68,10 @@ toc_icon: "graduation-cap"  # corresponding Font Awesome icon name (without fa p
                 </li>
             </ul>
         </td>
-        <td> :&nbsp;</td>
+        <!-- <td> :&nbsp;</td> -->
     </tr>
 </table>
 
-<ul>
-    <li>
-    Graduate Research Assistant.
-    </li>
-    <li>
-    Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design.
-    </li>
-    <li>
-    Recipient of Graduate Dean's Fellowship.
-    </li>
-    <li>
-    Recipient of Hoglund Fellowship.
-    </li>
-</ul>
 
 **University of Central Florida**
 
