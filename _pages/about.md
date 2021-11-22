@@ -59,10 +59,10 @@ motivation and interests, <br><b>let's connect!</b>
             </ul>
         </td>
     </tr>
-    
 </table>
 
-<div class="wrapper">I have a tooltip.
+
+<div class="wrapper">Courses
     <div class="tooltip">I am a tooltip!</div>
 </div>
             
