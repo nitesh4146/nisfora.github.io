@@ -59,7 +59,7 @@ plugins:
 author:
   name   : "Nitish Gupta"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : ""We are getting close to intelligent machines, but they are showing the necessary weakness of intelligence." — Richard Feynman"
+  bio    : "'We are getting close to intelligent machines, but they are showing the necessary weakness of intelligence.' — Richard Feynman"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
