@@ -26,41 +26,6 @@ similar
 motivation and interests, <br><b>let's connect!</b>
 
 
-## <p style="color:#037365"> Education </p>
-### <a href="">University of Central Florida </a>
-*Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
-
-<table>
-    <tr>
-        <td><b>Research</b></td>
-        <td>Real-time Autonomous Systems</td>
-    </tr>
-    <tr>
-        <td><b>Advisors</b></td>
-        <td><a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a> and <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
-            Fallah</a></td>
-    </tr>
-    <tr>
-        <td><b>Highlights<b></td>
-        <td>
-            <ul>
-                <li>
-                Graduate Research Assistant
-                </li>
-                <li>
-                Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design
-                </li>
-                <li>
-                Recipient of Graduate Dean's Fellowship
-                </li>
-                <li>
-                Recipient of Hoglund Fellowship
-                </li>
-            </ul>
-        </td>
-    </tr>
-    
-</table>
 
             
 ### University of Central Florida
