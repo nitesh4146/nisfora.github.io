@@ -44,7 +44,7 @@ motivation and interests, <br><b>let's connect!</b>
 </table>
 
 
-<div class="wrapper">
+<button type="button" class="wrapper">
   Courses
   <div class="tooltip">
     <ul class="fa-ul mb-0">
@@ -60,7 +60,7 @@ motivation and interests, <br><b>let's connect!</b>
         <li><i class="fa-li fa fa-book"></i>EEL 6971 - Thesis</li>
         </ul>
   </div>
-</div>
+</button>
 
             
 ### University of Central Florida
