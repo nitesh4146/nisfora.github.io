@@ -44,13 +44,9 @@ motivation and interests, <br><b>let's connect!</b>
 </table>
 
 
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-  Tooltip with HTML
-</button>
-<!-- 
-<button type="button" class="tooltip">
+<button type="button" class="wrapper">
   Courses
-  <div class="tooltiptext">
+  <div class="tooltip">
     <ul class="fa-ul mb-0">
         <li><i class="fa-li fa fa-book"></i>CAP 6671 - Intelligent Systems: Robots, Agents, and Humans</li>
         <li><i class="fa-li fa fa-book"></i>CAP 5415 - Computer Vision</li>
@@ -64,7 +60,7 @@ motivation and interests, <br><b>let's connect!</b>
         <li><i class="fa-li fa fa-book"></i>EEL 6971 - Thesis</li>
         </ul>
   </div>
-</button> -->
+</button>
 
             
 ### University of Central Florida
