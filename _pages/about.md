@@ -62,6 +62,18 @@ motivation and interests, <br><b>let's connect!</b>
   </div>
 </div>
 
+<ul>
+    <li>CAP 6671 - Intelligent Systems: Robots, Agents, and Humans</li>
+    <li>CAP 5415 - Computer Vision</li>
+    <li>CDA 5106 - Advanced Computer Architecture</li>
+    <li>COP 6616 - Multicore Programming</li>
+    <li>COT 5405 - Design & Analysis of Algorithms</li>
+    <li>EEL 5722C - Field Programmable Gate Arrays</li>
+    <li>EEL 5820 - Image Processing</li>
+    <li>EEL 6938 - Modeling and Analysis of Networked
+        Cyber-Physical Systems</li>
+    <li>EEL 6971 - Thesis</li>
+</ul>
             
 ### University of Central Florida
 
