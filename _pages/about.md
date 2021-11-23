@@ -27,7 +27,7 @@ motivation and interests, <br><b>let's connect!</b>
 
 
 ## Education
-### <a href="">University of Central Florida </a>
+### University of Central Florida
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
 
 <table>
@@ -37,7 +37,8 @@ motivation and interests, <br><b>let's connect!</b>
     </tr>
     <tr>
         <td><b>Advisors</b></td>
-        <td><a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a> and <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
+        <td><a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a> 
+        and <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
             Fallah</a></td>
     </tr>
     <tr>
@@ -58,8 +59,7 @@ motivation and interests, <br><b>let's connect!</b>
                 </li>
             </ul>
         </td>
-    </tr>
-    
+    </tr> 
 </table>
 
             
