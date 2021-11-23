@@ -43,9 +43,9 @@ motivation and interests, <br><b>let's connect!</b>
     </tr>
 </table>
 
-<div class="wrapper">
+<div class="tooltip">
   Courses
-  <div class="tooltip">
+  <div class="tooltiptext">
     <ul class="fa-ul mb-0">
         <li><i class="fa-li fa fa-book"></i>CAP 6671 - Intelligent Systems: Robots, Agents, and Humans</li>
         <li><i class="fa-li fa fa-book"></i>CAP 5415 - Computer Vision</li>
