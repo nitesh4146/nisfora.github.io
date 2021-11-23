@@ -43,6 +43,11 @@ motivation and interests, <br><b>let's connect!</b>
     </tr>
 </table>
 
+
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+  Tooltip with HTML
+</button>
+<!-- 
 <button type="button" class="tooltip">
   Courses
   <div class="tooltiptext">
@@ -59,7 +64,7 @@ motivation and interests, <br><b>let's connect!</b>
         <li><i class="fa-li fa fa-book"></i>EEL 6971 - Thesis</li>
         </ul>
   </div>
-</button>
+</button> -->
 
             
 ### University of Central Florida
