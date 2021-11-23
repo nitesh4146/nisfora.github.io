@@ -47,7 +47,7 @@ motivation and interests, <br><b>let's connect!</b>
 <div type="button" class="wrapper">
   Courses
   <div class="tooltip">
-    <ul class="fa-ul mb-0">
+    <ul class="fa-ul">
         <li><i class="fa-li fa fa-book"></i>CAP 6671 - Intelligent Systems: Robots, Agents, and Humans</li>
         <li><i class="fa-li fa fa-book"></i>CAP 5415 - Computer Vision</li>
         <li><i class="fa-li fa fa-book"></i>CDA 5106 - Advanced Computer Architecture</li>
