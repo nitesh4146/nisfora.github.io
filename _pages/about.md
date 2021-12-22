@@ -6,6 +6,8 @@ tags:
 toc: true
 toc_label: "Jump to"
 toc_icon: "list-ul"
+toc_sticky: true
+
 ---
 
 <!-- About -->
@@ -44,7 +46,7 @@ motivation and interests, <br><b>let's connect!</b>
 </table>
 
 
-<div type="button" class="wrapper">
+<!-- <div type="button" class="wrapper">
   Courses
   <div class="tooltip">
     <ul>
@@ -73,7 +75,7 @@ motivation and interests, <br><b>let's connect!</b>
     <li>EEL 6938 - Modeling and Analysis of Networked
         Cyber-Physical Systems</li>
     <li>EEL 6971 - Thesis</li>
-</ul>
+</ul> -->
             
 ### University of Central Florida
 
@@ -84,8 +86,8 @@ motivation and interests, <br><b>let's connect!</b>
 
 Lorem ipsum dolor sit amet, test link adipiscing elit. **This is strong**. Nullam dignissim convallis est. Quisque aliquam.
 
-![Smithsonian Image]({{ site.url }}{{ site.baseurl }}/assets/images/3953273590_704e3899d5_m.jpg)
-{: .image-right}
+<!-- ![Smithsonian Image]({{ site.url }}{{ site.baseurl }}/assets/images/3953273590_704e3899d5_m.jpg)
+{: .image-right} -->
 
 *This is emphasized*. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H2O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times (That’s a citation). Underline.Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
 
