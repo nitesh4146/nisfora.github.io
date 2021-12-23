@@ -1,6 +1,16 @@
 ---
 permalink: /about/
-title: "About Nitish Gupta"
+title: "About me"
+# author_profile: false
+
+header:
+  overlay_image: /assets/images/mountains.jpg
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com/photos/JgOeRuGD_Y4)"
+  actions:
+    - label: "<i class='fas fa-download'></i> Resume"
+      url: "/assets/docs/Nitish_Gupta_Resume.pdf"
+# excerpt: ""
+
 tags:
   - about
 toc: true
@@ -12,7 +22,7 @@ toc_sticky: true
 <!-- About -->
 > ***"We are getting close to intelligent machines, but they are showing the necessary weakness of intelligence."*** — Richard Feynman
 
-Currently, an AI Robotics researcher at
+<!-- Currently, an AI Robotics researcher at
 <a href="http://www.nhkinternational.com/" target="_blank">NHK International Corporation, USA</a>,
 leading the development of Robotics based SOTA reinforcement algorithms.
 Previously, a Cooperative Autonomous Vehicle Researcher at
@@ -24,25 +34,66 @@ include tackling challenges in Sensor Fusion, Path Planning, and Localization by
 highly robust algorithms & accurate deep learning models.
 <br>In my leisure time, I love to do gardening, play chess, read books/blogs and travel. If you share a
 similar
-motivation and interests, <br><b>let's connect!</b>
+motivation and interests, <br><b>let's connect!</b> -->
 
 
 ## Education
-### University of Central Florida
+**University of Central Florida**  
 *Ph.D. in Computer Engineering &nbsp;[GPA: 4.00 / 4.00]*
 
 <table>
     <tr>
         <td><b>Research</b></td>
-        <td>Real-time Autonomous Systems</td>
+        <td> :&nbsp; Real-time Autonomous Systems</td>
     </tr>
     <tr>
-        <td><b>Advisors</b></td>
-        <td><a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a> 
-        and <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
-            Fallah</a></td>
+        <td><b>Advisor</b></td>
+        <td>:&nbsp; <a href="https://www.ece.ucf.edu/~zsguo/index.html" target="_blank"> Dr. Zhishan Guo</a></td>
+    </tr>
+    <tr>
+        <td><b>Co-advisor</b></td>
+        <td>:&nbsp; <a href="https://www.ece.ucf.edu/person/yaser-p-fallah/" target="_blank"> Dr. Yaser P.
+            Fallah</a> </td>
+    </tr>
+    <tr>
+      <td>
+          <b>Roles & Achievements</b><br>
+      </td>
+      <td>
+          <ul>
+              <li>
+              Graduate Research Assistant.
+              </li>
+              <li>
+              Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design.
+              </li>
+              <!-- <li>
+              Recipient of Graduate Dean's Fellowship.
+              </li>
+              <li>
+              Recipient of Hoglund Fellowship.
+              </li> -->
+          </ul>
+      <!-- <td> :&nbsp;</td> -->
+      </td>
     </tr>
 </table>
+
+<!-- <ul>
+    <li>
+    Graduate Research Assistant.
+    </li>
+    <li>
+    Graduate Teaching Assistant: EECS 140 Introduction to Digital Logic Design.
+    </li>
+    <li>
+    Recipient of Graduate Dean's Fellowship.
+    </li>
+    <li>
+    Recipient of Hoglund Fellowship.
+    </li>
+</ul> -->
+
 
 
 <!-- <div type="button" class="wrapper">

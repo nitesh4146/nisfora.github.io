@@ -170,6 +170,21 @@ compress_html:
   ignore:
     envs: development
 
+# Collections
+collections:
+  # docs:
+  #   output: true
+  #   permalink: /:collection/:path/
+  # recipes:
+  #   output: true
+  #   permalink: /:collection/:path/
+  # pets:
+  #   output: true
+  #   permalink: /:collection/:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
+
 defaults:
   # _posts
   - scope:
@@ -189,17 +204,15 @@ defaults:
     values:
       layout: single
       author_profile: true
+ 
   # _projects
   - scope:
-      path: "_projects"
-      type: pages
+      path: ""
+      type: projects
     values:
       layout: single
-      author_profile: true
-      read_time: true
-      comments: true
+      author_profile: false
       share: true
-      related: true
 
 category_archive:
   type: liquid
