@@ -1,13 +1,11 @@
 main:
-  - title: "Blogs"
-    url: /blogs/
+  - title: "Posts"
+    url: /posts/
   - title: "Projects"
     url: /projects/
   - title: "About"
     url: /about/
   - title: "Categories"
     url: /categories/
-  - title: "Posts"
-    url: /posts/
   # - title: "Resume"
   #   url: /assets/docs/Nitish_Gupta_Resume.pdf

@@ -7,7 +7,6 @@ toc: true
 toc_label: "Jump to"
 toc_icon: "list-ul"
 toc_sticky: true
-
 ---
 
 <!-- About -->
