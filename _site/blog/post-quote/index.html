@@ -1,0 +1,864 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Deep Neural Network from Scratch - Part 1 - Nitish Gupta</title>
+<meta name="description" content="In this post I will be explaining how to design your own Neural Network (Keras-like) framework from scratch in python 3.7+. This post assumes you have basic understanding of how a Neural Network works and familiarity with forward-backward propagation, Loss functions, Optimizers, Regularization and so on. Without any further due, let’s jump right into it.">
+
+
+  <meta name="author" content="Nitish Gupta">
+  
+  <meta property="article:author" content="Nitish Gupta">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Nitish Gupta">
+<meta property="og:title" content="Deep Neural Network from Scratch - Part 1">
+<meta property="og:url" content="http://localhost:4000/blog/post-quote/">
+
+
+  <meta property="og:description" content="In this post I will be explaining how to design your own Neural Network (Keras-like) framework from scratch in python 3.7+. This post assumes you have basic understanding of how a Neural Network works and familiarity with forward-backward propagation, Loss functions, Optimizers, Regularization and so on. Without any further due, let’s jump right into it.">
+
+
+
+  <meta property="og:image" content="https://unsplash.com/photos/842ofHC6MaI">
+
+
+
+  <meta name="twitter:site" content="@slick_mind">
+  <meta name="twitter:title" content="Deep Neural Network from Scratch - Part 1">
+  <meta name="twitter:description" content="In this post I will be explaining how to design your own Neural Network (Keras-like) framework from scratch in python 3.7+. This post assumes you have basic understanding of how a Neural Network works and familiarity with forward-backward propagation, Loss functions, Optimizers, Regularization and so on. Without any further due, let’s jump right into it.">
+  <meta name="twitter:url" content="http://localhost:4000/blog/post-quote/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="https://unsplash.com/photos/842ofHC6MaI">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@slick_mind">
+  
+
+
+
+  <meta property="article:published_time" content="2019-04-18T15:34:30-04:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/blog/post-quote/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Nitish Gupta Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon.png" alt="Nitish Gupta"></a>
+        
+        <a class="site-title" href="/">
+          Nitish Gupta
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Blogs</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/me/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#blog" itemprop="item"><span itemprop="name">Blog</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Deep Neural Network from Scratch - Part 1</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/about">
+        <img src="/assets/images/bio-photo.jpg" alt="Nitish Gupta" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Nitish Gupta</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Real-time Autonomous Systems Researcher at RTIS-UCF</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Florida, United States</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://www.ece.ucf.edu/~zsguo/index.html" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-briefcase" aria-hidden="true"></i><span class="label">RTIS Lab</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:contact@guptanitish.com" rel="me" class="u-email">
+            <meta itemprop="email" content="contact@guptanitish.com" />
+            <i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+      
+      
+        <li>
+          <a href="https://scholar.google.com/citations?user=I6xPCsIAAAAJ" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fas fa-fw fa-graduation-cap" style="color:#4183ee" aria-hidden="true"></i><span class="label">Google Scholar</span>
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://twitter.com/slick_mind" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/nitish-gupta" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/nitesh4146" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        
+          <li>
+            <a href="https://www.youtube.com/user/nitesh4146" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
+            </a>
+          </li>
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Deep Neural Network from Scratch - Part 1">
+    <meta itemprop="description" content="In this post I will be explaining how to design your own Neural Network (Keras-like) framework from scratch in python 3.7+. This post assumes you have basic understanding of how a Neural Network works and familiarity with forward-backward propagation, Loss functions, Optimizers, Regularization and so on. Without any further due, let’s jump right into it.">
+    <meta itemprop="datePublished" content="2019-04-18T15:34:30-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/blog/post-quote/" class="u-url" itemprop="url">Deep Neural Network from Scratch - Part 1
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>In this post I will be explaining how to design your own Neural Network (Keras-like) framework from scratch in python 3.7+. This post assumes you have basic understanding of how a Neural Network works and familiarity with forward-backward propagation, Loss functions, Optimizers, Regularization and so on. Without any further due, let’s jump right into it.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/12000/0*AMlugSvbFgAH4p3t" alt="Photo by [Moritz Kindler](https://cdn.hashnode.com/res/hashnode/image/upload/v1620220626760/1w0avz-fZ.html) on [Unsplash](https://unsplash.com?utm_source=medium&amp;utm_medium=referral)" /><em>Photo by <a href="https://unsplash.com/@moritz_photography?utm_source=medium&amp;utm_medium=referral">Moritz Kindler</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+
+<p>A basic neural network model implementation in <strong>Keras</strong> framework looks like the following. In our implementation from scratch, we will try to design a similar framework as Keras (but basic).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># define the keras model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">))</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="base-neural-network-class"><strong>Base Neural Network class</strong></h2>
+
+<p>In order to keep all the functional elements together we will create a class (Vanilla here) to organize the functionality of our Neural Network. The class can store variables to define how the network in structured and parameterized.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Vanilla</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">layers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">activations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">alpha_0</span> <span class="o">=</span> <span class="mf">0.01</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="s">"entropy"</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">decay_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">problem_type</span> <span class="o">=</span> <span class="s">"c"</span> <span class="c1"># c for classification &amp; r for regression
+</span></code></pre></div></div>
+
+<h2 id="adding-layers"><strong>Adding Layers</strong></h2>
+
+<p>This function will allow users to add layers and design the graph of the network. Note that this function stores the number of hidden units in a variable named layers (similarly activation).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">"sigmoid"</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">input_dim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">activations</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">activation</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">input_dim</span><span class="p">)</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">activations</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">activation</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="compile-function"><strong>Compile Function</strong></h2>
+
+<p>This function initializes various model parameters before starting the training in the next step.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">"entropy"</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">alpha_0</span> <span class="o">=</span> <span class="n">learning_rate</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">loss</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">decay_rate</span> <span class="o">=</span> <span class="n">decay_rate</span>
+</code></pre></div></div>
+
+<h2 id="training-the-network"><strong>Training the network</strong></h2>
+
+<p>The fit method lies at the heart of this implementation. Although the actual function has a vast functionality, we will look at the most important part which is forward and backpropagation.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Forward Pass
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">no_of_layers</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'W'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span> <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'b'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span> <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">activations</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="n">dz</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">dW</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">db</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">dz</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Backpropagation of Gradients
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">no_of_layers</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">no_of_layers</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">dzz</span><span class="p">,</span> <span class="n">dWW</span><span class="p">,</span> <span class="n">dbb</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">backward</span><span class="p">(</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[],</span> <span class="n">dz</span><span class="p">[</span><span class="n">no_of_layers</span><span class="o">-</span><span class="n">i</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">activations</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">output_layer</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">dzz</span><span class="p">,</span> <span class="n">dWW</span><span class="p">,</span> <span class="n">dbb</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">backward</span><span class="p">(</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'W'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span> <span class="n">dz</span><span class="p">[</span><span class="n">no_of_layers</span><span class="o">-</span><span class="n">i</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">activations</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">dz</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">dzz</span><span class="p">)</span>
+    <span class="n">dW</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">dWW</span><span class="p">)</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">dbb</span><span class="p">)</span>
+
+<span class="c1"># Update Weights and Biases
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">no_of_layers</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">regularize</span><span class="p">:</span>
+        <span class="n">dW</span><span class="p">[</span><span class="n">no_of_layers</span> <span class="o">-</span>
+            <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="p">.</span><span class="n">l1_reg</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'W'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span> <span class="n">lambda_</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'W'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">-=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">dW</span><span class="p">[</span><span class="n">no_of_layers</span><span class="o">-</span><span class="n">i</span><span class="p">])</span>
+    <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'b'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">-=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">db</span><span class="p">[</span><span class="n">no_of_layers</span><span class="o">-</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h2 id="activation-functions"><strong>Activation Functions</strong></h2>
+
+<p>There are several activation functions (relu, sigmoid, softmax, tanh) defined in original Vanilla. An example of sigmoid and it’s derivative is shown below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">d_sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="loss-functions"><strong>Loss Functions</strong></h2>
+
+<p>Vanilla class contains three different loss functions — Cross Entropy, Logistic Loss, Mean Squared Error (MSE). An example implementation of Cross entropy is shown below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cross_entropy_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-11</span><span class="p">):</span>
+      <span class="n">m</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">n</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+      <span class="n">y_hat_clip</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">)</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">y_train</span> <span class="o">*</span>
+                <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_hat_clip</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">any</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">result</span><span class="p">))):</span>
+          <span class="k">print</span><span class="p">(</span><span class="s">"Error in Cross Entropy"</span><span class="p">)</span>
+          <span class="nb">exit</span><span class="p">()</span>
+      <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+<h2 id="predicting-the-output"><strong>Predicting the output</strong></h2>
+
+<p>The predict method takes the input data (X) and performs a forward pass through the network in order to get prediction values (y).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+      <span class="n">no_of_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">layers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+      <span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="n">a</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">no_of_layers</span><span class="p">):</span>
+          <span class="n">a</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'W'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span>
+                   <span class="bp">self</span><span class="p">.</span><span class="nb">dict</span><span class="p">[</span><span class="s">'b'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span> <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">activations</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+      <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>This is a developing post and more details will be added soon. If you found this post helpful, follow me and share this post!</p>
+
+<p>Github Link: <a href="https://github.com/nitesh4146/Vanilla-Neural-Network">Vanilla Neural Network Repository</a></p>
+
+<p>Cheers.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">Jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#update" class="page__taxonomy-item p-category" rel="tag">update</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#blog" class="page__taxonomy-item p-category" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2019-04-18T15:34:30-04:00">April 18, 2019</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?via=slick_mind&text=Deep+Neural+Network+from+Scratch+-+Part+1%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fpost-quote%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fpost-quote%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fpost-quote%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/welcome-to-jekyll/" class="pagination--pager" title="Welcome to Jekyll!
+">Previous</a>
+    
+    
+      <a href="/blog/post-link/" class="pagination--pager" title="7-step beginner’s guide to open-source contribution on GitHub
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/mountains.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/post-link/" rel="permalink">7-step beginner’s guide to open-source contribution on GitHub
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Photo by Yancy Min on Unsplash
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/mountains.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/welcome-to-jekyll/" rel="permalink">Welcome to Jekyll!
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/box.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/post-notice/" rel="permalink">Post: Notice
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">A notice displays information that explains nearby content. Often used to call attention to a particular detail.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/box.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/post-chat/" rel="permalink">Post: Chat
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Abbott: Strange as it may seem, they give ball players nowadays very peculiar names.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Nitish Gupta. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
